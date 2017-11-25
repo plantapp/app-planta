@@ -1,0 +1,45 @@
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <button ion-button menuToggle icon-only><ion-icon name='menu'></ion-icon></button>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list color="royal">
+          <ion-row>
+        <button color="royal" ion-item *ngFor="let page of pages" (click)="goToPage(page.component)" menuClose>
+                  <ion-icon item-left name="{{page.icon}}"></ion-icon> 
+                 {{page.titulo}}
+                  </button>
+                  <br/>
+          </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <button ion-button ion-button icon-only clear>
+                <ion-icon name="logo-twitter" color="primary"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button ion-button icon-only clear>
+                <ion-icon name="heart" color="danger"></ion-icon>              
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button ion-button icon-only clear>
+                <ion-icon name="logo-facebook" color="primary"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <button color="royal" ion-item *ngFor="let page of helpers" (click)="goToPage(page.component)" menuClose>
+            <ion-icon item-left name="{{page.icon}}"></ion-icon> 
+           {{page.titulo}}
+            </button>
+        </ion-row>      
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-nav #content [root]="rootPage"></ion-nav>
+  

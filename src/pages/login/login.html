@@ -1,0 +1,26 @@
+<ion-header>  
+    <ion-navbar color="secondary">
+      <ion-title>LogIn</ion-title>
+      <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+      </ion-buttons>
+  </ion-navbar>  
+  </ion-header>  
+  <ion-content padding>      
+    <ion-list>      
+        <ion-row center>
+            <ion-col text-center>
+              <img src="assets/imgs/hoja.png" class="logo"  style="height: 250px;" />
+            </ion-col>
+          </ion-row>
+        <ion-item>
+          <ion-label fixed>Username</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="model.userName" ></ion-input>
+        </ion-item>      
+        <ion-item>
+          <ion-label fixed>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="model.password"></ion-input>
+        </ion-item>      
+        <button ion-button block color="secondary" (click)="login()">Login</button>      
+      </ion-list>  
+  </ion-content>

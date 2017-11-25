@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle icon-only><ion-icon name='menu'></ion-icon></button>
+    <ion-title>Agregar Planta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-row center>
+    <ion-col text-center>
+      <img [src]="model.srcImagen" *ngIf="model.srcImagen"  style="height: 250px;"/>
+    </ion-col>
+  </ion-row>
+  <ion-item>
+      <ion-label color="secondary" floating>Nombre Planta</ion-label>
+    <ion-input type="text" [(ngModel)]="model.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Reino </ion-label>
+    <ion-input type="text" [(ngModel)]="model.reino"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Clase</ion-label>
+    <ion-input type="text" [(ngModel)]="model.clase"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Familia</ion-label>
+    <ion-input type="text" [(ngModel)]="model.familia"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Genero</ion-label>
+    <ion-input type="text" [(ngModel)]="model.genero"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Especie</ion-label>
+    <ion-input type="text" [(ngModel)]="model.especie"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Descripcion</ion-label>
+    <ion-textarea  type="text" [(ngModel)]="model.descripcion"></ion-textarea>
+  </ion-item>
+  <ion-item>
+      <ion-label color="secondary" floating>Ubicacion</ion-label>
+    <ion-input type="text" [(ngModel)]="model.ubicacion"></ion-input>
+  </ion-item> 
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p>Guardar Planta</p>
+    <ion-buttons end>
+      <button ion-button icon-right color="secondary" (click)="createPlanta()">
+            Guardar
+            <ion-icon name="send"></ion-icon>
+          </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

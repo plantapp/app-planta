@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title> LogIn/ Register</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Cerrar</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="welcome">
+  <ion-row center>
+    <ion-col text-center>
+      <img src="assets/imgs/hoja.png" class="logo" />
+    </ion-col>
+  </ion-row>
+  <h1 text-center> Bienvenido a PlantApp </h1>
+  <br/>
+  <h3 text-center>Descubre todo lo interesante acerca de las plantas</h3>
+  <button ion-button block class="marginTop" (click)="signup()">Signup</button>
+  <button ion-button block color="secondary" (click)="login()">Login</button>
+</ion-content>

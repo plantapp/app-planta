@@ -1,0 +1,14 @@
+{
+  "name": "plant-app",
+  "app_id": "26103e62",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://plantappunsch.azurewebsites.net/api/plant"
+    }
+  ],
+  "integrations": {
+    "cordova": {}
+  }
+}

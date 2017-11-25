@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title> Mi Peril</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Cerrar</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-list>
+    <ion-row center>
+      <ion-col text-center>
+        <ion-avatar item-start>
+          <img [src]="model.image" *ngIf="model.image" style="height: 250px;">
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+    <h1 text-center>{{model.Nombres}} </h1>
+    <ion-item>
+      <ion-label fixed>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="model.userName"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="danger" (click)="logout()">Cerrar Sesion</button>
+  </ion-list>
+</ion-content>

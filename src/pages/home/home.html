@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle icon-only><ion-icon name='menu'></ion-icon></button>
+    <ion-title>Plantas UNSCH</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only  (click)="checkLocation()">
+          <ion-icon name="locate"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="openModal()">
+          <ion-icon name="person-add"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+  <ion-navbar>
+      <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab right bottom>
+    <button ion-fab color="secondary"><ion-icon name="leaf"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab color="secondary" (click)="goToAddGallery()"><ion-icon name="md-image"></ion-icon></button>
+      <button ion-fab color="secondary" (click)="goToAdd()"><ion-icon name="md-camera"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-card on-tap="openDetails(plant.id)" *ngFor="let plant of plantas">
+    <ion-item>
+      <ion-avatar item-start>        
+        <img *ngIf="plant" src="{{ plant.userImage }}">
+      </ion-avatar>
+      <h2 class="pdata">{{plant.userNombres}}</h2>
+      <p>{{plant.fecha}}</p>
+    </ion-item>
+    <img *ngIf="plant" src="{{ plant.imagen }}" style="height: 250px;">
+    <ion-card-content>
+      <ion-card-title  class="pdata">
+        {{plant.nombre}}
+      </ion-card-title>
+      <ion-note >
+        {{plant.descripcion}}
+      </ion-note>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start (click)="goToLocation(plant.ubicacion)">
+            <ion-icon name='pin'></ion-icon>
+            {{plant.ubicacion}}
+          </button>
+      </ion-col>    
+      <ion-col></ion-col>  
+      <ion-col align-self-center text-center>        
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

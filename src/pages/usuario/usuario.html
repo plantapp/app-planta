@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="secondary">  
+      <ion-title> SingUp</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="closeModal()">Cerrar</button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+<ion-content padding>
+  <ion-list>  
+    <ion-row center>  
+        <ion-col col-10 text-right>   
+            <ion-avatar item-start>
+                <img [src]="model.srcImage" *ngIf="model.srcImage" style="height: 250px;"/>
+              </ion-avatar>            
+        </ion-col>
+        <ion-col col-2 text-right>   
+            <button ion-button clear icon-center color="secondary" (click)="openMenu()">
+                <ion-icon name="people"></ion-icon>
+                           </button>
+        </ion-col> 
+       </ion-row>    
+    <ion-item>
+      <ion-label >Name</ion-label>
+      <ion-input type="text" [(ngModel)]="model.nombres"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label >Email</ion-label>
+      <ion-input type="text" [(ngModel)]="model.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label >Username</ion-label>
+      <ion-input type="text" [(ngModel)]="model.userName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label >Password</ion-label>
+      <ion-input type="password" [(ngModel)]="model.password"></ion-input>
+    </ion-item>
+    <button ion-button block color="secondary" (click)="signup()">Registrar</button>
+  </ion-list>
+</ion-content>

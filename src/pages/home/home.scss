@@ -1,0 +1,22 @@
+.navbarLogo {
+  height: 40px;
+  float: left;
+  margin-left: 10px;
+}
+
+page-home {
+  .social-cards ion-col {
+    padding: 0;
+  }
+  .pdata {
+    color: #cccccc;
+  }
+  .blue {
+    color: #006699;
+  }
+  #udpateBox {
+    textarea {
+      width: 100%;
+    }
+  }
+}
