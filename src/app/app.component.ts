@@ -2,7 +2,7 @@ import { CreditosPage } from './../pages/creditos/creditos';
 import { AyudaPage } from './../pages/ayuda/ayuda';
 import { TutorialPage } from './../pages/tutorial/tutorial';
 import { RegistrosPage } from './../pages/registros/registros';
-import { AjustesPage } from './../pages/ajustes/ajustes';
+// import { AjustesPage } from './../pages/ajustes/ajustes';
 import { Component, ViewChild } from '@angular/core';
 import { Platform ,Nav, MenuController} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -22,7 +22,7 @@ export class MyApp {
     this.rootPage = HomePage;
     this.pages = [
       { titulo: 'Inicio', component: HomePage, icon: 'home' },     
-      { titulo: 'Ajustes', component: AjustesPage, icon: 'construct' },
+      // { titulo: 'Ajustes', component: AjustesPage, icon: 'construct' },
       { titulo: 'Mis Registros', component: RegistrosPage, icon: 'list-box' }
     ];
     this.helpers = [

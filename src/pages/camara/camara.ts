@@ -40,20 +40,22 @@ export class CamaraPage {
     }
   }
   createPlanta() {
+    let loading = this.loadingCtrl.create({ content: 'Guardando...' });
     if (this.model.imagen && this.model.nombre && this.model.clase && this.model.familia && this.model.genero && this.model.especie && this.model.descripcion && this.model.ubicacion) {
-      this.loader.present();
-      this.service.auth(this.model, "planta").then((result) => {
-        this.loader.dismiss();
-        let response: any = result;
-        if (response.id) {          
-          this.navCtrl.push(HomePage);
-          this.present("Nueva Planta agregada correctamente");
-        } else {
-          this.present("Ocurrio error al crear el la planta");
-        }
-      }, (err) => {
-        this.loader.dismiss();
-        this.present("Connection failed");
+      loading.present().then(() => {
+        this.service.auth(this.model, "planta").then((result) => {
+          loading.dismiss();
+          let response: any = result;
+          if (response.id) {
+            this.navCtrl.setRoot(HomePage);
+            this.present("Nueva Planta agregada correctamente");
+          } else {
+            this.present("Ocurrio error al crear el la planta");
+          }
+        }, (err) => {
+          loading.dismiss();
+          this.present("Connection failed");
+        });
       });
     }
     else {

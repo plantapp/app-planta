@@ -30,7 +30,12 @@ export class AuthService {
     return this.http.get(apiUrl + "/search/" + item)
       .map(res => res.json())
   }
+  getRegistros(id) {
+    return this.http.get(apiUrl + "/registros/" + id)
+      .map(res => res.json())
+  }
   getPlant(Id) {
+    
     return this.http.get(apiUrl + "/" + Id)
       .map(res => res.json())
   }

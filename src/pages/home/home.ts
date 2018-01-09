@@ -75,12 +75,12 @@ export class HomePage {
     let modal = this.modalCtrl.create(LocationPage, { ubicacion: coordenadas });
     modal.present();
   }
-  search(ev) {    
+  search(ev) {
     let val = ev.target.value;
-    if (val && val.trim() != '') {     
-      this.service.searchPlants(val).subscribe(data => {       
-        this.plantas = data;       
-      }, error => {       
+    if (val && val.trim() != '') {
+      this.service.searchPlants(val).subscribe(data => {
+        this.plantas = data;
+      }, error => {
         this.present("Error", "Connection failed");
       });
     } else {
@@ -118,10 +118,7 @@ export class HomePage {
     let options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      targetWidth: 500,
-      targetHeight: 500,
-      quality: 100
+      mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options)
       .then(imageData => {
@@ -141,23 +138,25 @@ export class HomePage {
   }
 
   validar() {
+    let loading = this.loadingCtrl.create({ content: 'Validando...' });
     if (this.model.image) {
-      this.loader.present();
-      this.service.auth(this.model, "validate").then(data => {
-        this.loader.dismiss();
-        let result: any = data;
-        if (result.status) {
-          this.navCtrl.push(DetallePlantaPage, { Id: result.id });
-        } else {
-          this.navCtrl.push(CamaraPage, { image: this.model.srcImage, idata: this.model.image, name: result.imagenName });
-        }
-      }, (err) => {
-        this.loader.dismiss();
-        this.alertCtrl.create({
-          title: 'Message',
-          subTitle: 'Ocurrio error al validar la planta!',
-          buttons: ['Aceptar']
-        }).present();
+      loading.present().then(() => {
+        this.service.auth(this.model, "validate").then(data => {
+          loading.dismiss();
+          let result: any = data;
+          if (result.status) {
+            this.navCtrl.push(DetallePlantaPage, { Id: result.id });
+          } else {
+            this.navCtrl.push(CamaraPage, { image: this.model.srcImage, idata: this.model.image, name: result.imagenName });
+          }
+        }, (err) => {
+          loading.dismiss();
+          this.alertCtrl.create({
+            title: 'Message',
+            subTitle: 'Ocurrio error al validar la planta!',
+            buttons: ['Aceptar']
+          }).present();
+        });
       });
     } else {
       this.alertCtrl.create({

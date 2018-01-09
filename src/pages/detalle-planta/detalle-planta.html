@@ -1,16 +1,18 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <button ion-button menuToggle icon-only><ion-icon name='menu'></ion-icon></button>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
     <ion-title>Detalles de Planta</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
   <ion-card *ngIf="planta">
     <ion-grid>
-      <ion-row>        
+      <ion-row>
         <ion-col col-12>
-          <img src="{{planta.imagen}}"  style="height: 250px;" />
-        </ion-col>    
+          <img src="{{planta.imagen}}" style="height: 250px;" />
+        </ion-col>
       </ion-row>
     </ion-grid>
     <ion-card-content>
@@ -23,15 +25,7 @@
                 Clase
               </ion-col>
               <ion-col col-9 left text-left>
-                <ion-note>{{planta.especie}}</ion-note>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-3 left text-left>
-                División
-              </ion-col>
-              <ion-col col-9 left text-left>
-                <ion-note>{{planta.division}}</ion-note>
+                <ion-note>{{planta.clase}}</ion-note>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -43,19 +37,6 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col left text-left>
-                <button ion-button icon-left clear small (click)="goToLocation(planta.ubicacion)">
-                  <ion-icon name='pin'></ion-icon>
-                  <div>  {{planta.ubicacion}}</div>
-                </button>
-
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-slide>
-        <ion-slide>
-          <ion-grid>
-            <ion-row>
               <ion-col col-3 left text-left>
                 Familia
               </ion-col>
@@ -64,19 +45,7 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col col-3 left text-left>
-                Captura
-              </ion-col>
-              <ion-col col-9 left text-left>
-                <ion-note>{{planta.fecha}}</ion-note>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-3 left text-left>
-                Género
-              </ion-col>
-              <ion-col col-9 left text-left>
-                <ion-note>{{planta.genero}}</ion-note>
+              <ion-col left text-left>                
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -85,10 +54,10 @@
           <ion-grid>
             <ion-row>
               <ion-col col-3 left text-left>
-                Orden
+                Género
               </ion-col>
               <ion-col col-9 left text-left>
-                <ion-note>{{planta.orden}}</ion-note>
+                <ion-note>{{planta.genero}}</ion-note>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -101,30 +70,10 @@
             </ion-row>
             <ion-row>
               <ion-col col-3 left text-left>
-                S. Clase
+                Localización
               </ion-col>
               <ion-col col-9 left text-left>
-                <ion-note>{{planta.subClase}}</ion-note>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-slide>
-        <ion-slide>
-          <ion-grid>
-            <ion-row>
-              <ion-col col-3 left text-left>
-                S. Fam.
-              </ion-col>
-              <ion-col col-9 left text-left>
-                <ion-note>{{planta.subFamilia}}</ion-note>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col col-3 left text-left>
-                Tribu
-              </ion-col>
-              <ion-col col-9 left text-left>
-                <ion-note>{{planta.tribu}}</ion-note>
+                <ion-note>{{planta.ubicacion}}</ion-note>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -133,25 +82,24 @@
     </ion-card-content>
     <ion-row>
       <ion-col col-4>
-        <button ion-button color="secondary" icon-left clear small>
-            <ion-icon name="close"></ion-icon>
-            <div>Eliminar</div>
-          </button>
+        <button ion-button color="secondary" icon-left clear small (click)="goToLocation(planta.ubicacion)">
+          <ion-icon name="pin"></ion-icon>
+          <div>Ubicación</div>
+        </button>
       </ion-col>
       <ion-col col-4>
         <button ion-button color="secondary" icon-left clear small>
-            <ion-icon name="share"></ion-icon>
-            <div>Compartir</div>
-          </button>
+          <ion-icon name="share"></ion-icon>
+          <div>Compartir</div>
+        </button>
       </ion-col>
       <ion-col col-4>
         <button ion-button color="secondary" icon-left clear small>
-              <ion-icon name="cloud-download"></ion-icon>
-              <div>Descargar</div>
-            </button>
+          <ion-icon name="cloud-download"></ion-icon>
+          <div>Descargar</div>
+        </button>
       </ion-col>
     </ion-row>
 
   </ion-card>
 </ion-content>
-

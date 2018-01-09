@@ -4,15 +4,35 @@
     <ion-title>Mis Registros</ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding id="app">
-  <ion-row center>
-    <ion-col text-center>
-      <img src="/assets/imgs/development.png" class="logo" />
-    </ion-col>
-  </ion-row>
-  <h1 text-center> En Desarrollo </h1>
-  <br/>
-  <h3 text-center>Pronto estara a disposición de Ud. Gracias</h3>
+  <ion-card on-tap="viewPlanta(plant.id)" *ngFor="let plant of registros">
+    <ion-item>
+      <ion-avatar item-start>        
+        <img *ngIf="plant" src="{{ plant.userImage }}">
+      </ion-avatar>
+      <h2 class="pdata">{{plant.userNombres}}</h2>
+      <p>{{plant.fecha}}</p>
+    </ion-item>
+    <img *ngIf="plant" src="{{ plant.imagen }}" style="height: 250px;">
+    <ion-card-content>
+      <ion-card-title  class="pdata">
+        {{plant.nombre}}
+      </ion-card-title>
+      <ion-note >
+        {{plant.descripcion}}
+      </ion-note>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-start (click)="goToLocation(plant.ubicacion)">
+            <ion-icon name='pin'></ion-icon>
+            {{plant.ubicacion}}
+          </button>
+      </ion-col>    
+      <ion-col></ion-col>  
+      <ion-col align-self-center text-center>        
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
