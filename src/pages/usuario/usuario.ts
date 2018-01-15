@@ -96,7 +96,11 @@ export class UsuarioPage {
   getGallery() {
     this.camera.getPicture({
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-      destinationType: this.camera.DestinationType.DATA_URL
+      destinationType: this.camera.DestinationType.DATA_URL,
+      allowEdit : true,
+      targetWidth: 100,
+      targetHeight: 100,     
+      quality: 100
     }).then((imageData) => {
       this.model.image = `${imageData}`;
       this.model.srcImage = `data:image/jpeg;base64,${imageData}`;
@@ -117,8 +121,9 @@ export class UsuarioPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      targetWidth: 500,
-      targetHeight: 500,
+      allowEdit : true,
+      targetWidth: 100,
+      targetHeight: 100,     
       quality: 100
     }
     this.camera.getPicture(options)

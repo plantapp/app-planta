@@ -98,7 +98,11 @@ export class HomePage {
   goToAddGallery() {
     this.camera.getPicture({
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-      destinationType: this.camera.DestinationType.DATA_URL
+      destinationType: this.camera.DestinationType.DATA_URL,
+      allowEdit : true,
+      targetWidth: 100,
+      targetHeight: 100,     
+      quality: 100
     }).then((imageData) => {
       if (imageData) {
         this.model.image = `${imageData}`;
@@ -118,7 +122,11 @@ export class HomePage {
     let options: CameraOptions = {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit : true,
+      targetWidth: 100,
+      targetHeight: 100,     
+      quality: 100
     }
     this.camera.getPicture(options)
       .then(imageData => {
