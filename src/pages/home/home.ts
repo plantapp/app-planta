@@ -99,9 +99,9 @@ export class HomePage {
     this.camera.getPicture({
       sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
       destinationType: this.camera.DestinationType.DATA_URL,
-      allowEdit : true,
-      targetWidth: 100,
-      targetHeight: 100,     
+      allowEdit : true,         
+      targetWidth: 300,
+      targetHeight: 400,   
       quality: 100
     }).then((imageData) => {
       if (imageData) {
@@ -123,9 +123,9 @@ export class HomePage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      allowEdit : true,
-      targetWidth: 100,
-      targetHeight: 100,     
+      targetWidth: 300,
+      targetHeight: 400, 
+      allowEdit : true,          
       quality: 100
     }
     this.camera.getPicture(options)
